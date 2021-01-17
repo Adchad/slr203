@@ -13,6 +13,7 @@ public class Actor extends UntypedAbstractActor{
 
 	// Logger attached to actor
 	private final LoggingAdapter log = Logging.getLogger(getContext().getSystem(), this);
+	private MessageNumberPacket message_old = new MessageNumberPacket(-1, "");
 	// Actor reference
 	ArrayList<ActorRef> list ;
 
@@ -44,6 +45,26 @@ public class Actor extends UntypedAbstractActor{
 			}
 		}
 		
+		if(message instanceof MessageNumberPacket){
+			MessageNumberPacket message_new = (MessageNumberPacket)message;
+			
+			if(message_new.number == message_old.number){
+				log.info("[" + getSelf().path().name() + "] "+"Packet from "+getSender().path().name()+" was dropped");
+				return;
+			}
+			else{
+				message_old = message_new;
+				
+				log.info("[" + getSelf().path().name() + "] "+ message_new.packet +" with number "+ message_new.number + " was received from "+ getSender().path().name());
+				
+				for(ActorRef actor : list){
+					actor.tell(message_new, this.getSelf());
+				}
+
+
+			}
+
+		}
 
 		
 	}

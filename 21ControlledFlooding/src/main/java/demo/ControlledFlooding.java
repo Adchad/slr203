@@ -6,7 +6,7 @@ import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 
 
-public class UncontrolledFlooding {
+public class ControlledFlooding {
 
 	private static ArrayList<ActorRef> actorList = new ArrayList<ActorRef>();
 
@@ -31,7 +31,10 @@ public class UncontrolledFlooding {
 
 		try{Thread.sleep(500);}catch(Exception e){}
 
-		actorList.get(0).tell("Packet", ActorRef.noSender());
+		actorList.get(0).tell(new MessageNumberPacket(0, "Packet")	, ActorRef.noSender());
+		try{Thread.sleep(1000);}catch(Exception e){}
+		actorList.get(0).tell(new MessageNumberPacket(1, "Packet2")	, ActorRef.noSender());
+
 
 	    try {
 			waitBeforeTerminate();
@@ -85,7 +88,7 @@ public class UncontrolledFlooding {
 		matrix.get(1).set(3, 1);
 		matrix.get(2).set(3, 1);
 		matrix.get(3).set(4, 1);
-		//matrix.get(4).set(1,1); This line adds a link from E to B, this results in an infinite loop
+		matrix.get(4).set(1,1); //This line adds a link from E to B
 	
 		return matrix;
 	}
