@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>akka-patterns</groupId>
-    <artifactId>2-akka-converge-cast</artifactId>
+    <artifactId>11-akka-converge-cast</artifactId>
     <version>1.0</version>
 
     <properties>

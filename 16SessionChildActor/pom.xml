@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>akka-patterns</groupId>
-    <artifactId>2-akka-session-child-actor</artifactId>
+    <artifactId>16-akka-session-child-actor</artifactId>
     <version>1.0</version>
 
     <properties>

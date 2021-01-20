@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>akka-patterns</groupId>
-    <artifactId>18-akka-search-actor</artifactId>
+    <artifactId>19-akka-communication-topology</artifactId>
     <version>1.0</version>
 
     <properties>

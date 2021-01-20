@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>akka-patterns</groupId>
-    <artifactId>2-akka-create-reference-by-message</artifactId>
+    <artifactId>7-akka-request-dont-wait</artifactId>
     <version>1.0</version>
 
     <properties>
